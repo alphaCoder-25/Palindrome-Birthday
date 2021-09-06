@@ -11,12 +11,6 @@ function isPalindrome(str) {
     return str === reverse;
 };
 
-const date = {
-    day: 25,
-    month: 05,
-    year: 1997 
-};
-
 function convertDateToString(date) {
 
     const dateString = { day: '', month: '', year: ''};
@@ -37,4 +31,25 @@ function convertDateToString(date) {
 
      return dateString;
 };
-console.log(convertDateToString(date));
+
+ const date = {
+    day: 5,
+    month: 5,
+    year: 1997
+}
+
+function getAllDateFormats(date) {
+
+    const dateString = convertDateToString(date);
+
+    const ddmmyyyy = dateString.day + dateString.month + dateString.year;
+    const mmddyyyy = dateString.month + dateString.day + dateString.year;
+    const yyyymmdd = dateString.year + dateString.month + dateString.day;
+    const ddmmyy   = dateString.day + dateString.month + dateString.year.slice(-2);
+    const mmddyy   = dateString.month + dateString.day + dateString.year.slice(-2);
+    const yymmdd   = dateString.year.slice(-2) + dateString.month + dateString.day;
+
+    return [ddmmyyyy, mmddyyyy, yyyymmdd, ddmmyy, mmddyy, yymmdd];
+}
+// console.log(getAllDateFormats(date));
+
