@@ -8,9 +8,5 @@ function reverseString(str) {
 
 function isPalindrome(str) {
     const reverse = reverseString(str);
-    if( str === reverse ) {
-        return true;
-    }
-    return false;
-}    
-console.log(isPalindrome('racecar'));
+    return str === reverse;
+};
