@@ -32,12 +32,6 @@ function convertDateToString(date) {
      return dateString;
 };
 
- const date = {
-    day: 5,
-    month: 5,
-    year: 1997
-}
-
 function getAllDateFormats(date) {
 
     const dateString = convertDateToString(date);
@@ -51,5 +45,27 @@ function getAllDateFormats(date) {
 
     return [ddmmyyyy, mmddyyyy, yyyymmdd, ddmmyy, mmddyy, yymmdd];
 }
-// console.log(getAllDateFormats(date));
+
+function checkPalindromeForAllDateFormats(date) {
+
+    const listOfPalindromes = getAllDateFormats(date);
+
+    let randomVariable = false;
+
+    for(let i=0; i < listOfPalindromes.length; i++) {
+        if(isPalindrome(listOfPalindromes[i])) {
+            randomVariable = true;
+            break;
+        }
+    }   
+    return randomVariable;
+};
+
+const date = {
+    day: 5,
+    month: 11,
+    year: 2020,
+}
+
+// console.log(checkPalindromeForAllDateFormats(date));
 
