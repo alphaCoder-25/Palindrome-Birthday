@@ -61,11 +61,73 @@ function checkPalindromeForAllDateFormats(date) {
     return randomVariable;
 };
 
+
+function checkLeapYear(year) {
+    if(year % 400 === 0) {
+        return true;
+    }
+    if(year % 100 === 0) {
+        return false;
+    }
+    if(year % 4 === 0) {
+        return true;
+    }
+    return false;
+}
+
+
+function getNextDate(date) {
+    let day = date.day + 1;
+    let month = date.month;
+    let year = date.year;
+
+    const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+    if(month === 2) {
+        if(checkLeapYear(year)) {
+            if(day > 29) {
+               day = 1;
+               month++; 
+            }
+        }
+        else {
+            if(day > 28) {
+               day = 1;
+               month++;
+            }
+        }
+    }
+    else {
+        if(day > daysInMonth[month - 1]){
+            day = 1;
+            month++;
+        }
+    }
+
+    if (month > 12) {
+        month = 1;
+        year++;
+    }
+
+    return{
+        day: day,
+        month: month,
+        year: year
+    };
+}
+
+
+function getNextPalindromeDate(date) {
+
+}
+
+
+
 const date = {
-    day: 5,
-    month: 11,
+    day: 31,
+    month: 12,
     year: 2020,
 }
 
-// console.log(checkPalindromeForAllDateFormats(date));
+// console.log(getNextDate(date));
 
