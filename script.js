@@ -118,7 +118,18 @@ function getNextDate(date) {
 
 
 function getNextPalindromeDate(date) {
+    let counter = 0;
+    let nextDate = getNextDate(date);
 
+    while(1){
+        counter++;
+        const checkPalindrome = checkPalindromeForAllDateFormats(nextDate);
+        if(checkPalindrome){
+            break;
+        }
+        nextDate = getNextDate(nextDate);
+    }
+    return [counter, nextDate];
 }
 
 
@@ -129,5 +140,5 @@ const date = {
     year: 2020,
 }
 
-// console.log(getNextDate(date));
+// console.log(getNextPalindromeDate(date));
 
