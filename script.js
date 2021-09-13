@@ -116,7 +116,6 @@ function getNextDate(date) {
     };
 }
 
-
 function getNextPalindromeDate(date) {
     let counter = 0;
     let nextDate = getNextDate(date);
@@ -133,12 +132,7 @@ function getNextPalindromeDate(date) {
 }
 
 
+const inputDate = document.querySelector("#input-date");
+const showButton = document.querySelector("#show-btn");
 
-const date = {
-    day: 31,
-    month: 12,
-    year: 2020,
-}
-
-// console.log(getNextPalindromeDate(date));
 
