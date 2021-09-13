@@ -134,5 +134,33 @@ function getNextPalindromeDate(date) {
 
 const inputDate = document.querySelector("#input-date");
 const showButton = document.querySelector("#show-btn");
+const result = document.querySelector("#result");
 
 
+function calculateDate() {
+    const bdayString = inputDate.value;
+
+    if(bdayString !== '') {
+       const dateList = bdayString.split('-');
+
+       const date = {
+           day: Number(dateList[2]),
+           month: Number(dateList[1]),
+           year: Number(dateList[0])
+       };
+
+       const checkPalindrome = checkPalindromeForAllDateFormats(date);
+
+       if(checkPalindrome) {
+        result.innerText = 'Hurray! Your birthday is a Palindrome!! 🥳🥳'
+       }
+       else {
+           let [counter, nextDate] = getNextPalindromeDate(date);
+           result.innerText = `Oops! Your birthday is not a palindrome. The next Palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year}, you missed it by ${counter} days! 😞` 
+       };
+    }
+}
+
+
+
+showButton.addEventListener('click', calculateDate);
