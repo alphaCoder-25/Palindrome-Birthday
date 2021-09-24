@@ -161,6 +161,4 @@ function calculateDate() {
     }
 }
 
-
-
 showButton.addEventListener('click', calculateDate);
